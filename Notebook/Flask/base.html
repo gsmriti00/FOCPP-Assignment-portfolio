@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>{{ title }}</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ title or "Flask Lab" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <header>
-    <h1>Flask Full Lab App</h1>
+    <h1>Flask Learning Project</h1>
     <nav>
         <a href="/">Home</a> |
-        <a href="/greet">Greet</a> |
-        <a href="/favorites">Favorites</a> |
-        <a href="/login">Login</a>
+        <a href="/greet">Greet</a>
     </nav>
     <hr>
 </header>
@@ -20,5 +17,10 @@
 <main>
     {% block content %}{% endblock %}
 </main>
+
+<footer>
+    <hr>
+    <p>&copy; 2025 Flask Lab</p>
+</footer>
 </body>
 </html>

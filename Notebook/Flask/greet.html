@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Greet a User</h2>
-<form method="post">
-    <input type="text" name="name" placeholder="Enter your name">
-    <button type="submit">Greet</button>
+<h2>Greet Me Form</h2>
+
+<form action="/greet" method="post">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Submit</button>
 </form>
 
 {% if message %}
-<p>{{ message }}</p>
-{% if string_ops %}
-<ul>
-{% for key, value in string_ops.items() %}
-<li><strong>{{ key }}:</strong> {{ value }}</li>
-{% endfor %}
-</ul>
-{% endif %}
+<p><strong>{{ message }}</strong></p>
 {% endif %}
 {% endblock %}
