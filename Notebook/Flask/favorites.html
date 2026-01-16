@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Favorite Programming Languages</h2>
+<form method="post">
+    <input type="text" name="language" placeholder="Language name">
+    <button type="submit" name="action" value="add">Add</button>
+    {% if is_admin %}
+    <button type="submit" name="action" value="delete_selected">Delete Selected</button>
+    <button type="submit" name="action" value="clear">Clear All</button>
+    {% endif %}
+    <button type="submit" name="action" value="sort">Sort</button>
+</form>
+
+{% if message %}
+<p><strong>{{ message }}</strong></p>
+{% endif %}
+
+<h3>Current Languages:</h3>
+<form method="post">
+<ul>
+{% for lang in languages %}
+<li>
+    {% if is_admin %}
+    <input type="checkbox" name="selected_languages" value="{{ lang }}">
+    {% endif %}
+    {{ loop.index }}. {{ lang }}
+</li>
+{% endfor %}
+</ul>
+</form>
+{% endblock %}
